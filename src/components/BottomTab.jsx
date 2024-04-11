@@ -1,12 +1,15 @@
 import React from "react";
 import { Box, HStack, Icon, Text } from "@chakra-ui/react";
 import { FaCalendar, FaBookmark, FaComments, FaCog } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const BottomTab = () => {
+  const navigate = useNavigate();
+
   return (
     <Box position="fixed" bottom={0} left={0} right={0} bg="white" py={2} borderTopWidth={1}>
       <HStack justify="space-around">
-        <Box textAlign="center">
+        <Box textAlign="center" onClick={() => navigate("/my-schedule")}>
           <Icon as={FaCalendar} boxSize={6} />
           <Text fontSize="xs">내일정</Text>
         </Box>
