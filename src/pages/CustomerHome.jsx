@@ -40,7 +40,7 @@ const CustomerHome = () => {
           서비스 유형
         </Heading>
         <SimpleGrid columns={3} spacing={4} mb={8}>
-          <Box textAlign="center" onClick={() => navigate("/moving-cleaning")}>
+          <Box textAlign="center" onClick={() => navigate("/moving-cleaning-reservation")}>
             <Icon as={FaHome} boxSize={12} />
             <Text>이사/입주청소</Text>
           </Box>

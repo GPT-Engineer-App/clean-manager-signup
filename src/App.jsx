@@ -4,6 +4,7 @@ import CustomerSignUp from "./pages/CustomerSignUp.jsx";
 import CustomerHome from "./pages/CustomerHome.jsx";
 import RequestCleaning from "./pages/RequestCleaning.jsx";
 import MyReservations from "./pages/MyReservations.jsx";
+import MovingCleaningReservation from "./pages/MovingCleaningReservation.jsx";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/home" element={<CustomerHome />} />
         <Route path="/request-cleaning" element={<RequestCleaning />} />
         <Route path="/my-reservations" element={<MyReservations />} />
+        <Route path="/moving-cleaning-reservation" element={<MovingCleaningReservation />} />
       </Routes>
     </Router>
   );
