@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Box, Heading } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 import BottomTab from "../components/BottomTab";
 import ReservationCard from "../components/ReservationCard";
 
 const Home = () => {
+  const navigate = useNavigate();
   const [reservations, setReservations] = useState([]);
 
   useEffect(() => {
