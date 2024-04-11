@@ -62,16 +62,7 @@ const CustomerHome = () => {
           </Box>
         </SimpleGrid>
         <CleanerReviews />
-        <Heading size="lg" mb={4}>
-          청소 예약 내역
-        </Heading>
-        {reservations.map((reservation) => (
-          <Box key={reservation.id} borderWidth={1} borderRadius="md" p={4} mb={4}>
-            <Text>주소: {reservation.address}</Text>
-            <Text>예약일시: {reservation.reservationDateTime}</Text>
-            <Text>상태: {reservation.status}</Text>
-          </Box>
-        ))}
+
         <Button colorScheme="green" onClick={() => navigate("/request-cleaning")} isFullWidth>
           새로운 청소 요청하기
         </Button>

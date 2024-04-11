@@ -25,6 +25,10 @@ const BottomTab = () => {
           <Icon as={FaCog} boxSize={6} />
           <Text fontSize="xs">설정</Text>
         </Box>
+        <Box textAlign="center" onClick={() => navigate("/my-reservations")}>
+          <Icon as={FaBookmark} boxSize={6} />
+          <Text fontSize="xs">내 예약</Text>
+        </Box>
       </HStack>
     </Box>
   );
