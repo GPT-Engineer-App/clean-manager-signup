@@ -1,10 +1,30 @@
-import React from "react";
-import { Box, Heading, IconButton } from "@chakra-ui/react";
+import React, { useState } from "react";
+import { Box, Heading, IconButton, Text, Button } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 
-const SubmitQuote = () => {
+const SubmitQuote = ({ reservation }) => {
   const navigate = useNavigate();
+  const [quote, setQuote] = useState(0);
+
+  const calculateQuote = () => {
+    let basePrice = 0;
+    switch (reservation.address.split(" ")[0]) {
+      case "서울시":
+        basePrice = 100000;
+        break;
+      case "경기도":
+        basePrice = 90000;
+        break;
+      default:
+        basePrice = 80000;
+    }
+    setQuote(basePrice);
+  };
+
+  const handleSubmitQuote = () => {
+    navigate("/payment", { state: { quote } });
+  };
 
   return (
     <Box>
@@ -14,8 +34,20 @@ const SubmitQuote = () => {
           견적 제출
         </Heading>
       </Box>
-      <Box textAlign="center" mt={8}>
-        Quote submission and deposit charging functionality will be added here
+      <Box mt={8}>
+        <Text>고객 정보:</Text>
+        <Text>이름: {reservation.customerName}</Text>
+        <Text>주소: {reservation.address}</Text>
+        <Text>청소 견적: {quote.toLocaleString()}원</Text>
+        {quote === 0 ? (
+          <Button colorScheme="blue" onClick={calculateQuote} mt={4}>
+            견적 계산하기
+          </Button>
+        ) : (
+          <Button colorScheme="green" onClick={handleSubmitQuote} mt={4}>
+            결제하기
+          </Button>
+        )}
       </Box>
     </Box>
   );

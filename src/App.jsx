@@ -7,6 +7,7 @@ import ReservationManagement from "./pages/ReservationManagement.jsx";
 import Chat from "./pages/Chat.jsx";
 import Settings from "./pages/Settings.jsx";
 import SubmitQuote from "./pages/SubmitQuote.jsx";
+import Payment from "./pages/Payment.jsx";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/chat" element={<Chat />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/submit-quote" element={<SubmitQuote />} />
+        <Route path="/payment" element={<Payment />} />
       </Routes>
     </Router>
   );
