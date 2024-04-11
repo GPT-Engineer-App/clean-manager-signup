@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Box, Heading, Text, Button } from "@chakra-ui/react";
+import { Box, Heading, Text, Button, SimpleGrid, Icon } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import { FaHome, FaStore, FaBuilding, FaStar, FaTools } from "react-icons/fa";
+import CleanerReviews from "../components/CleanerReviews";
 
 const CustomerHome = () => {
   const [reservations, setReservations] = useState([]);
@@ -34,6 +36,32 @@ const CustomerHome = () => {
         고객 홈
       </Heading>
       <Box p={4}>
+        <Heading size="lg" mb={4}>
+          서비스 유형
+        </Heading>
+        <SimpleGrid columns={3} spacing={4} mb={8}>
+          <Box textAlign="center" onClick={() => navigate("/moving-cleaning")}>
+            <Icon as={FaHome} boxSize={12} />
+            <Text>이사/입주청소</Text>
+          </Box>
+          <Box textAlign="center" onClick={() => navigate("/commercial-cleaning")}>
+            <Icon as={FaStore} boxSize={12} />
+            <Text>상가청소</Text>
+          </Box>
+          <Box textAlign="center" onClick={() => navigate("/office-cleaning")}>
+            <Icon as={FaBuilding} boxSize={12} />
+            <Text>사무실청소</Text>
+          </Box>
+          <Box textAlign="center" onClick={() => navigate("/special-cleaning")}>
+            <Icon as={FaStar} boxSize={12} />
+            <Text>특수청소</Text>
+          </Box>
+          <Box textAlign="center" onClick={() => navigate("/appliance-cleaning")}>
+            <Icon as={FaTools} boxSize={12} />
+            <Text>가전청소</Text>
+          </Box>
+        </SimpleGrid>
+        <CleanerReviews />
         <Heading size="lg" mb={4}>
           청소 예약 내역
         </Heading>
