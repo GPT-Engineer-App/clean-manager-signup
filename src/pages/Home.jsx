@@ -30,8 +30,8 @@ const Home = () => {
     fetchReservations();
   }, []);
 
-  const handleSubmitQuote = (reservationId) => {
-    console.log(`Submitting quote for reservation ${reservationId}`);
+  const handleSubmitQuote = (reservation) => {
+    navigate("/submit-quote", { state: { reservation } });
   };
 
   return (
