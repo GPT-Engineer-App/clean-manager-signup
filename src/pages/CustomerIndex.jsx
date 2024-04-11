@@ -48,6 +48,9 @@ const CustomerIndex = () => {
             회원가입
           </Button>
         </Text>
+        <Button colorScheme="green" onClick={() => navigate("/request-cleaning")} isFullWidth>
+          청소 요청하기
+        </Button>
       </VStack>
     </Box>
   );

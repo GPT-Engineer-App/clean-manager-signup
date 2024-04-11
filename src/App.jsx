@@ -1,27 +1,17 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import Index from "./pages/Index.jsx";
-import SignUp from "./pages/SignUp.jsx";
-import Home from "./pages/Home.jsx";
-import MySchedule from "./pages/MySchedule.jsx";
-import ReservationManagement from "./pages/ReservationManagement.jsx";
-import Chat from "./pages/Chat.jsx";
-import Settings from "./pages/Settings.jsx";
-import SubmitQuote from "./pages/SubmitQuote.jsx";
-import Payment from "./pages/Payment.jsx";
+import CustomerIndex from "./pages/CustomerIndex.jsx";
+import CustomerSignUp from "./pages/CustomerSignUp.jsx";
+import CustomerHome from "./pages/CustomerHome.jsx";
+import RequestCleaning from "./pages/RequestCleaning.jsx";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path="/" element={<Index />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/my-schedule" element={<MySchedule />} />
-        <Route path="/reservation-management" element={<ReservationManagement />} />
-        <Route path="/chat" element={<Chat />} />
-        <Route path="/settings" element={<Settings />} />
-        <Route path="/submit-quote" element={<SubmitQuote />} />
-        <Route path="/payment" element={<Payment />} />
+        <Route exact path="/" element={<CustomerIndex />} />
+        <Route path="/signup" element={<CustomerSignUp />} />
+        <Route path="/home" element={<CustomerHome />} />
+        <Route path="/request-cleaning" element={<RequestCleaning />} />
       </Routes>
     </Router>
   );
