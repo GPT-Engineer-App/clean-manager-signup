@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Box, VStack, Input, Button, Text, Heading, useToast } from "@chakra-ui/react";
 import { FaPhone } from "react-icons/fa";
 
@@ -24,13 +25,10 @@ const Index = () => {
     }
   };
 
+  const navigate = useNavigate();
+
   const handleSignUp = () => {
-    toast({
-      title: "회원가입 페이지로 이동합니다",
-      status: "info",
-      duration: 3000,
-      isClosable: true,
-    });
+    navigate("/signup");
   };
 
   return (

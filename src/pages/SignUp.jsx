@@ -1,60 +1,50 @@
 import React, { useState } from "react";
-import { Box, VStack, Input, Button, Text, Heading, useToast, Select, Checkbox, Textarea, Radio, RadioGroup, Stack, FormControl, FormLabel, FormErrorMessage } from "@chakra-ui/react";
+import { Box, Button, Checkbox, FormControl, FormLabel, Heading, Input, Select, Textarea, VStack, useToast } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    phoneNumber: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-    address: "",
-    dateOfBirth: "",
-    gender: "",
-    cleaningExperience: "",
-    preferredAreas: [],
-    otherCleaningExperience: "",
-    selfIntroduction: "",
-    otherSkills: "",
-    desiredWorkingHours: "",
-    desiredRegion: "",
-    profilePicture: null,
-    termsOfService: false,
-    privacyPolicy: false,
-  });
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [address, setAddress] = useState("");
+  const [birthdate, setBirthdate] = useState("");
+  const [gender, setGender] = useState("");
+  const [experience, setExperience] = useState("");
+  const [preference, setPreference] = useState("");
+  const [otherExperience, setOtherExperience] = useState("");
+  const [introduction, setIntroduction] = useState("");
+  const [strengths, setStrengths] = useState("");
+  const [workHours, setWorkHours] = useState("");
+  const [workArea, setWorkArea] = useState("");
+  const [profileImage, setProfileImage] = useState(null);
+  const [termsAgreed, setTermsAgreed] = useState(false);
+  const [privacyAgreed, setPrivacyAgreed] = useState(false);
 
-  const [errors, setErrors] = useState({});
   const toast = useToast();
   const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    const fieldValue = type === "checkbox" ? checked : value;
-
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: fieldValue,
-    }));
-  };
-
-  const handleFileChange = (e) => {
-    setFormData((prevData) => ({
-      ...prevData,
-      profilePicture: e.target.files[0],
-    }));
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    const validationErrors = validateForm();
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
+    if (password !== confirmPassword) {
+      toast({
+        title: "비밀번호가 일치하지 않습니다",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
       return;
     }
-
-    console.log(formData);
+    if (!termsAgreed || !privacyAgreed) {
+      toast({
+        title: "약관에 동의해주세요",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+      return;
+    }
 
     toast({
       title: "회원가입이 완료되었습니다",
@@ -62,179 +52,101 @@ const SignUp = () => {
       duration: 3000,
       isClosable: true,
     });
-
     navigate("/");
   };
 
-  const validateForm = () => {
-    const errors = {};
-
-    if (!formData.name) {
-      errors.name = "이름을 입력해주세요";
-    }
-
-    if (!formData.phoneNumber) {
-      errors.phoneNumber = "연락처를 입력해주세요";
-    }
-
-    if (!formData.email) {
-      errors.email = "이메일을 입력해주세요";
-    }
-
-    if (!formData.password) {
-      errors.password = "비밀번호를 입력해주세요";
-    }
-
-    if (formData.password !== formData.confirmPassword) {
-      errors.confirmPassword = "비밀번호가 일치하지 않습니다";
-    }
-
-    if (!formData.termsOfService || !formData.privacyPolicy) {
-      errors.agreement = "약관에 동의해주세요";
-    }
-
-    return errors;
-  };
-
   return (
-    <Box p={4}>
-      <Heading size="xl" textAlign="center" mb={8}>
+    <Box maxWidth="md" mx="auto" mt={8}>
+      <Heading as="h1" size="xl" textAlign="center" mb={8}>
         청소매니저 회원가입
       </Heading>
       <form onSubmit={handleSubmit}>
         <VStack spacing={4} align="stretch">
-          <Heading size="lg" mb={2}>
-            회원 정보
-          </Heading>
-          <FormControl isInvalid={errors.name}>
+          <FormControl isRequired>
             <FormLabel>이름</FormLabel>
-            <Input type="text" name="name" value={formData.name} onChange={handleChange} />
-            <FormErrorMessage>{errors.name}</FormErrorMessage>
+            <Input type="text" value={name} onChange={(e) => setName(e.target.value)} />
           </FormControl>
-          <FormControl isInvalid={errors.phoneNumber}>
+          <FormControl isRequired>
             <FormLabel>연락처</FormLabel>
-            <Input type="tel" name="phoneNumber" value={formData.phoneNumber} onChange={handleChange} />
-            <FormErrorMessage>{errors.phoneNumber}</FormErrorMessage>
+            <Input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} />
           </FormControl>
-          <FormControl isInvalid={errors.email}>
+          <FormControl isRequired>
             <FormLabel>이메일</FormLabel>
-            <Input type="email" name="email" value={formData.email} onChange={handleChange} />
-            <FormErrorMessage>{errors.email}</FormErrorMessage>
+            <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
           </FormControl>
-          <FormControl isInvalid={errors.password}>
+          <FormControl isRequired>
             <FormLabel>비밀번호</FormLabel>
-            <Input type="password" name="password" value={formData.password} onChange={handleChange} />
-            <FormErrorMessage>{errors.password}</FormErrorMessage>
+            <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
           </FormControl>
-          <FormControl isInvalid={errors.confirmPassword}>
+          <FormControl isRequired>
             <FormLabel>비밀번호 확인</FormLabel>
-            <Input type="password" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} />
-            <FormErrorMessage>{errors.confirmPassword}</FormErrorMessage>
+            <Input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
           </FormControl>
-          <FormControl>
+          <FormControl isRequired>
             <FormLabel>주소</FormLabel>
-            <Input type="text" name="address" value={formData.address} onChange={handleChange} />
+            <Input type="text" value={address} onChange={(e) => setAddress(e.target.value)} />
           </FormControl>
-          <FormControl>
+          <FormControl isRequired>
             <FormLabel>생년월일</FormLabel>
-            <Input type="date" name="dateOfBirth" value={formData.dateOfBirth} onChange={handleChange} />
+            <Input type="date" value={birthdate} onChange={(e) => setBirthdate(e.target.value)} />
           </FormControl>
-          <FormControl>
+          <FormControl isRequired>
             <FormLabel>성별</FormLabel>
-            <Select name="gender" value={formData.gender} onChange={handleChange}>
-              <option value="">선택</option>
+            <Select placeholder="성별을 선택하세요" value={gender} onChange={(e) => setGender(e.target.value)}>
               <option value="male">남성</option>
               <option value="female">여성</option>
             </Select>
           </FormControl>
-
-          <Heading size="lg" mt={8} mb={2}>
-            청소 경력 및 선호 분야
-          </Heading>
           <FormControl>
             <FormLabel>청소 경력</FormLabel>
-            <RadioGroup name="cleaningExperience" value={formData.cleaningExperience} onChange={handleChange}>
-              <Stack direction="column">
-                <Radio value="none">경력 없음</Radio>
-                <Radio value="lessThan1">1년 미만</Radio>
-                <Radio value="1to3">1년 이상 3년 미만</Radio>
-                <Radio value="3to5">3년 이상 5년 미만</Radio>
-                <Radio value="moreThan5">5년 이상</Radio>
-              </Stack>
-            </RadioGroup>
+            <Select placeholder="경력을 선택하세요" value={experience} onChange={(e) => setExperience(e.target.value)}>
+              <option value="none">경력 없음</option>
+              <option value="less1">1년 미만</option>
+              <option value="1to3">1년 이상 3년 미만</option>
+              <option value="3to5">3년 이상 5년 미만</option>
+              <option value="over5">5년 이상</option>
+            </Select>
           </FormControl>
           <FormControl>
             <FormLabel>선호 분야</FormLabel>
-            <Stack direction="column">
-              <Checkbox name="preferredAreas" value="residential" isChecked={formData.preferredAreas.includes("residential")} onChange={handleChange}>
-                주택 청소
-              </Checkbox>
-              <Checkbox name="preferredAreas" value="office" isChecked={formData.preferredAreas.includes("office")} onChange={handleChange}>
-                사무실 청소
-              </Checkbox>
-              <Checkbox name="preferredAreas" value="factory" isChecked={formData.preferredAreas.includes("factory")} onChange={handleChange}>
-                공장 청소
-              </Checkbox>
-              <Checkbox name="preferredAreas" value="other" isChecked={formData.preferredAreas.includes("other")} onChange={handleChange}>
-                기타
-              </Checkbox>
-            </Stack>
+            <Select placeholder="선호 분야를 선택하세요" value={preference} onChange={(e) => setPreference(e.target.value)}>
+              <option value="house">주택 청소</option>
+              <option value="office">사무실 청소</option>
+              <option value="factory">공장 청소</option>
+              <option value="etc">기타</option>
+            </Select>
           </FormControl>
           <FormControl>
             <FormLabel>기타 청소 경험</FormLabel>
-            <Textarea name="otherCleaningExperience" value={formData.otherCleaningExperience} onChange={handleChange} />
+            <Textarea value={otherExperience} onChange={(e) => setOtherExperience(e.target.value)} />
           </FormControl>
-
-          <Heading size="lg" mt={8} mb={2}>
-            추가 정보
-          </Heading>
           <FormControl>
             <FormLabel>자기소개</FormLabel>
-            <Textarea name="selfIntroduction" value={formData.selfIntroduction} onChange={handleChange} />
+            <Textarea value={introduction} onChange={(e) => setIntroduction(e.target.value)} />
           </FormControl>
           <FormControl>
             <FormLabel>기타 특기나 강점</FormLabel>
-            <Textarea name="otherSkills" value={formData.otherSkills} onChange={handleChange} />
+            <Textarea value={strengths} onChange={(e) => setStrengths(e.target.value)} />
           </FormControl>
           <FormControl>
             <FormLabel>희망 근무 시간</FormLabel>
-            <Input type="text" name="desiredWorkingHours" value={formData.desiredWorkingHours} onChange={handleChange} />
+            <Input type="text" value={workHours} onChange={(e) => setWorkHours(e.target.value)} />
           </FormControl>
           <FormControl>
             <FormLabel>희망 지역</FormLabel>
-            <Input type="text" name="desiredRegion" value={formData.desiredRegion} onChange={handleChange} />
+            <Input type="text" value={workArea} onChange={(e) => setWorkArea(e.target.value)} />
           </FormControl>
           <FormControl>
             <FormLabel>프로필 사진</FormLabel>
-            <Input type="file" name="profilePicture" onChange={handleFileChange} />
+            <Input type="file" accept="image/*" onChange={(e) => setProfileImage(e.target.files[0])} />
           </FormControl>
-
-          <Heading size="lg" mt={8} mb={2}>
-            약관 동의
-          </Heading>
-          <FormControl isInvalid={errors.agreement}>
-            <Stack direction="column">
-              <Checkbox name="termsOfService" isChecked={formData.termsOfService} onChange={handleChange}>
-                <Text>
-                  <a href="/terms-of-service" target="_blank" rel="noopener noreferrer">
-                    이용약관
-                  </a>{" "}
-                  동의
-                </Text>
-              </Checkbox>
-              <Checkbox name="privacyPolicy" isChecked={formData.privacyPolicy} onChange={handleChange}>
-                <Text>
-                  <a href="/privacy-policy" target="_blank" rel="noopener noreferrer">
-                    개인정보 처리방침
-                  </a>{" "}
-                  동의
-                </Text>
-              </Checkbox>
-            </Stack>
-            <FormErrorMessage>{errors.agreement}</FormErrorMessage>
-          </FormControl>
-
-          <Button type="submit" colorScheme="blue" size="lg" mt={8}>
+          <Checkbox isChecked={termsAgreed} onChange={(e) => setTermsAgreed(e.target.checked)}>
+            <a href="#">이용약관</a>에 동의합니다
+          </Checkbox>
+          <Checkbox isChecked={privacyAgreed} onChange={(e) => setPrivacyAgreed(e.target.checked)}>
+            <a href="#">개인정보 처리방침</a>에 동의합니다
+          </Checkbox>
+          <Button type="submit" colorScheme="blue">
             회원가입
           </Button>
         </VStack>
