@@ -45,7 +45,7 @@ const Index = () => {
         </Button>
         <Text>
           아직 회원이 아니신가요?{" "}
-          <Button variant="link" onClick={handleSignUp}>
+          <Button variant="link" onClick={() => navigate("/signup")}>
             회원가입
           </Button>
         </Text>
