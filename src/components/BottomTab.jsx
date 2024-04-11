@@ -17,11 +17,11 @@ const BottomTab = () => {
           <Icon as={FaBookmark} boxSize={6} />
           <Text fontSize="xs">예약관리</Text>
         </Box>
-        <Box textAlign="center">
+        <Box textAlign="center" onClick={() => navigate("/chat")}>
           <Icon as={FaComments} boxSize={6} />
           <Text fontSize="xs">채팅</Text>
         </Box>
-        <Box textAlign="center">
+        <Box textAlign="center" onClick={() => navigate("/settings")}>
           <Icon as={FaCog} boxSize={6} />
           <Text fontSize="xs">설정</Text>
         </Box>
