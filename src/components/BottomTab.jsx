@@ -13,7 +13,7 @@ const BottomTab = () => {
           <Icon as={FaCalendar} boxSize={6} />
           <Text fontSize="xs">내일정</Text>
         </Box>
-        <Box textAlign="center">
+        <Box textAlign="center" onClick={() => navigate("/reservation-management")}>
           <Icon as={FaBookmark} boxSize={6} />
           <Text fontSize="xs">예약관리</Text>
         </Box>
