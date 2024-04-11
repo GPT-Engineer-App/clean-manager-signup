@@ -1,12 +1,13 @@
 import React from "react";
 import { Box, Heading, Text } from "@chakra-ui/react";
+import StarRating from "./StarRating";
 
 const CleanerReviews = () => {
   const reviews = [
     {
       id: 1,
       cleanerName: "김철수",
-      rating: 4.5,
+      rating: 4,
       comment: "청소를 깔끔하게 잘 해주셨어요. 감사합니다!",
     },
     {
@@ -25,7 +26,7 @@ const CleanerReviews = () => {
       {reviews.map((review) => (
         <Box key={review.id} borderWidth={1} borderRadius="md" p={4} mb={4}>
           <Text fontWeight="bold">{review.cleanerName}</Text>
-          <Text>별점: {review.rating}</Text>
+          <StarRating rating={review.rating} />
           <Text>{review.comment}</Text>
         </Box>
       ))}
