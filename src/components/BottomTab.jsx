@@ -7,7 +7,7 @@ const BottomTab = () => {
   const navigate = useNavigate();
 
   return (
-    <Box position="fixed" bottom={0} left={0} right={0} bg="white" py={2} borderTopWidth={1}>
+    <Box position="fixed" bottom={0} left={0} right={0} bg="white" py={2} borderTopWidth={1} zIndex={1000}>
       <HStack justify="space-around">
         <Box textAlign="center" onClick={() => navigate("/my-schedule")}>
           <Icon as={FaCalendar} boxSize={6} />
