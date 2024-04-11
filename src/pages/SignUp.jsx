@@ -52,7 +52,7 @@ const SignUp = () => {
       duration: 3000,
       isClosable: true,
     });
-    navigate("/");
+    navigate("/home");
   };
 
   return (
