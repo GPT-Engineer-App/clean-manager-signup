@@ -30,7 +30,8 @@ const Home = () => {
     fetchReservations();
   }, []);
 
-  const handleSubmitQuote = (reservation) => {
+  const handleSubmitQuote = (reservationId) => {
+    const reservation = reservations.find((res) => res.id === reservationId);
     navigate("/submit-quote", { state: { reservation } });
   };
 

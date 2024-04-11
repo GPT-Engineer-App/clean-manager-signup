@@ -11,9 +11,7 @@ const SubmitQuote = () => {
   const [balance, setBalance] = useState(0);
 
   useEffect(() => {
-   
     const fetchBalance = async () => {
-     
       const fetchedBalance = 50000;
       setBalance(fetchedBalance);
     };
