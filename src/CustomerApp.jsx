@@ -9,7 +9,7 @@ function CustomerApp() {
       <Routes>
         <Route exact path="/" element={<CustomerIndex />} />
         <Route path="/signup" element={<CustomerSignUp />} />
-        <Route path="/home" element={<CustomerHome />} />
+        <Route path="/customer-home" element={<CustomerHome />} />
       </Routes>
     </Router>
   );
