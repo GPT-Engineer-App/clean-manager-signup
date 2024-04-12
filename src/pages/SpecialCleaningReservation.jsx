@@ -33,7 +33,7 @@ const SpecialCleaningReservation = () => {
   };
 
   return (
-    <Box>
+    <Box maxWidth="md" mx="auto" p={4}>
       <Box display="flex" alignItems="center" mb={8}>
         <IconButton icon={<FaArrowLeft />} variant="ghost" onClick={() => navigate("/customer-home")} mr={2} />
         <Heading size="xl" textAlign="center" flexGrow={1}>
