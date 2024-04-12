@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Box, Heading, Text, Image, VStack, Input } from "@chakra-ui/react";
+import { Box, Heading, Text, Image, VStack, Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
+import { FaSearch } from "react-icons/fa";
 import StarRating from "./StarRating";
 
 const CleanerReviews = () => {
@@ -44,7 +45,12 @@ const CleanerReviews = () => {
       <Heading size="lg" mb={4}>
         청소매니저 리뷰
       </Heading>
-      <Input placeholder="청소매니저 이름으로 검색" value={searchQuery} onChange={handleSearch} mb={4} />
+      <InputGroup mb={4}>
+        <InputLeftElement pointerEvents="none">
+          <FaSearch color="gray.300" />
+        </InputLeftElement>
+        <Input placeholder="청소매니저 이름으로 검색" value={searchQuery} onChange={handleSearch} />
+      </InputGroup>
       <VStack spacing={4}>
         {filteredReviews.map((review) => (
           <Box key={review.id} borderWidth={1} borderRadius="md" p={4}>
