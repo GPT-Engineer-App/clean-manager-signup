@@ -43,6 +43,14 @@ const CustomerHome = () => {
             <Text>가전청소</Text>
           </Box>
         </SimpleGrid>
+        <Box my={8}>
+          <a href="https://example.com/ad" target="_blank" rel="noopener noreferrer">
+            <img src="/path/to/ad-banner.jpg" alt="Advertisement" />
+            <Text textAlign="center" mt={2}>
+              광고 문구
+            </Text>
+          </a>
+        </Box>
         <CleanerReviews />
       </Box>
       <BottomTab />
