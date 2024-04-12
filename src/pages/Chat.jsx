@@ -2,7 +2,6 @@ import React from "react";
 import { Box, Heading, IconButton } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
-import ChatWindow from "../components/ChatWindow";
 
 const Chat = () => {
   const navigate = useNavigate();
@@ -15,7 +14,9 @@ const Chat = () => {
           채팅
         </Heading>
       </Box>
-      <ChatWindow />
+      <Box textAlign="center" mt={8}>
+        Chat content will be added here
+      </Box>
     </Box>
   );
 };
