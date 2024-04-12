@@ -27,7 +27,7 @@ const SpecialCleaningReservation = () => {
           특수 청소 예약
         </Heading>
       </Box>
-      <Box maxWidth="md" mx="auto" p={4}>
+      <Box p={4}>
         <SpecialCleaningReservationForm />
       </Box>
     </Box>
