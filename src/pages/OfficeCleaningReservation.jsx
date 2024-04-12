@@ -10,7 +10,7 @@ const OfficeCleaningReservation = () => {
   return (
     <Box>
       <Box display="flex" alignItems="center" mb={8}>
-        <IconButton icon={<FaArrowLeft />} variant="ghost" onClick={() => navigate("/home")} mr={2} />
+        <IconButton icon={<FaArrowLeft />} variant="ghost" onClick={() => navigate("/customer-home")} mr={2} />
         <Heading size="xl" textAlign="center" flexGrow={1}>
           사무실 청소 예약
         </Heading>
