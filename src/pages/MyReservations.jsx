@@ -38,20 +38,8 @@ const MyReservations = () => {
     fetchReservations();
   }, []);
 
-  const handleSelectQuote = (reservationId, quoteId) => {
-    const updatedReservations = reservations.map((reservation) => {
-      if (reservation.id === reservationId) {
-        return { ...reservation, status: "confirmed", selectedQuote: quoteId };
-      }
-      return reservation;
-    });
-    setReservations(updatedReservations);
-    toast({
-      title: "견적이 선택되었습니다.",
-      status: "success",
-      duration: 3000,
-      isClosable: true,
-    });
+  const handleSelectQuote = (reservationId, quote) => {
+    navigate("/payment", { state: { reservationId, quote } });
   };
 
   const handleModifyReservation = (reservationId) => {
@@ -93,8 +81,8 @@ const MyReservations = () => {
                   <Text>청소매니저: {quote.cleanerName}</Text>
                   <Text>견적 금액: {quote.price.toLocaleString()}원</Text>
                   {reservation.status === "pending" && (
-                    <Button size="sm" colorScheme="blue" mt={2} onClick={() => handleSelectQuote(reservation.id, quote.id)}>
-                      선택
+                    <Button size="sm" colorScheme="blue" mt={2} onClick={() => handleSelectQuote(reservation.id, quote)}>
+                      선택 및 계약금 결제
                     </Button>
                   )}
                 </Box>
