@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Box, Heading, Table, Thead, Tbody, Tr, Th, Td, Stat, StatLabel, StatNumber, StatHelpText } from "@chakra-ui/react";
+import { Box, Heading, Table, Thead, Tbody, Tr, Th, Td, Stat, StatLabel, StatNumber } from "@chakra-ui/react";
 import { Line } from "react-chartjs-2";
+import { Chart, CategoryScale, LinearScale, PointElement, LineElement } from "chart.js";
+
+Chart.register(CategoryScale, LinearScale, PointElement, LineElement);
 
 const AdminDashboard = () => {
   const [cleaners, setCleaners] = useState([]);
@@ -14,6 +17,26 @@ const AdminDashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        const cleanersResponse = await fetch("/api/cleaners");
+        const cleanersData = await cleanersResponse.json();
+        setCleaners(cleanersData);
+
+        const customersResponse = await fetch("/api/customers");
+        const customersData = await customersResponse.json();
+        setCustomers(customersData);
+
+        const reservationsResponse = await fetch("/api/reservations");
+        const reservationsData = await reservationsResponse.json();
+        setReservations(reservationsData);
+
+        const paymentsResponse = await fetch("/api/payments");
+        const paymentsData = await paymentsResponse.json();
+        setPayments(paymentsData);
+
+        const salesResponse = await fetch("/api/sales");
+        const salesData = await salesResponse.json();
+        setSales(salesData.totalSales);
+
         const profitResponse = await fetch("/api/profit");
         const profitData = await profitResponse.json();
         setProfit(profitData.totalProfit);
@@ -35,7 +58,6 @@ const AdminDashboard = () => {
         관리자 대시보드
       </Heading>
 
-      {}
       <Box display="flex" justifyContent="space-around" mb={8}>
         <Stat>
           <StatLabel>총 매출</StatLabel>
@@ -55,7 +77,6 @@ const AdminDashboard = () => {
         </Stat>
       </Box>
 
-      {}
       <Box mb={8}>
         <Line data={salesData} />
       </Box>
