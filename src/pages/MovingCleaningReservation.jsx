@@ -1,11 +1,20 @@
 import React from "react";
-import { Box, Heading } from "@chakra-ui/react";
+import { Box, Heading, IconButton } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 import MovingCleaningReservationForm from "../components/MovingCleaningReservationForm";
 
 const MovingCleaningReservation = () => {
+  const navigate = useNavigate();
+
   return (
     <Box>
-      <Heading mb={8}>이사/입주청소 예약</Heading>
+      <Box display="flex" alignItems="center" mb={8}>
+        <IconButton icon={<FaArrowLeft />} variant="ghost" onClick={() => navigate("/home")} mr={2} />
+        <Heading size="xl" textAlign="center" flexGrow={1}>
+          이사/입주청소 예약
+        </Heading>
+      </Box>
       <MovingCleaningReservationForm />
     </Box>
   );
