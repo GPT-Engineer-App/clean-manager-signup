@@ -16,7 +16,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<CustomerIndex />} />
         <Route path="/signup" element={<CustomerSignUp />} />
-        <Route path="/customer-home" element={<CustomerHome />} />
+        <Route path="/home" element={<CustomerHome />} />
         <Route path="/request-cleaning" element={<RequestCleaning />} />
         <Route path="/my-reservations" element={<MyReservations />} />
         <Route path="/moving-cleaning-reservation" element={<MovingCleaningReservation />} />
