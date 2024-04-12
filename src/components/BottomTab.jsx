@@ -17,7 +17,7 @@ const BottomTab = ({ selectedCleaner }) => {
           <Icon as={FaHistory} boxSize={6} />
           <Text fontSize="xs">이용내역</Text>
         </Box>
-        <Box textAlign="center" onClick={() => navigate("/customer-home")}>
+        <Box textAlign="center" onClick={() => navigate("/chat")}>
           <Icon as={FaComments} boxSize={6} />
           <Text fontSize="xs">채팅</Text>
         </Box>
