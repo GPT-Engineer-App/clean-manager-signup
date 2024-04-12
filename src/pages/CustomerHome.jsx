@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Box, Heading, SimpleGrid, Icon } from "@chakra-ui/react";
+import React from "react";
+import { Box, Heading, SimpleGrid, Icon, Text } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { FaHome, FaStore, FaBuilding, FaStar, FaTools } from "react-icons/fa";
 import CleanerReviews from "../components/CleanerReviews";
