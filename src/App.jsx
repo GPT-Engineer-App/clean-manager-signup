@@ -12,6 +12,7 @@ import ApplianceCleaningReservation from "./pages/ApplianceCleaningReservation.j
 import UsageHistory from "./pages/UsageHistory.jsx";
 import Chat from "./pages/Chat.jsx";
 import Payment from "./pages/Payment.jsx";
+import Settings from "./pages/Settings.jsx";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="/payment" element={<Payment />} />
         <Route path="/usage-history" element={<UsageHistory />} />
         <Route path="/chat" element={<Chat />} />
+        <Route path="/settings" element={<Settings />} />
       </Routes>
     </Router>
   );

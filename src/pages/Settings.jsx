@@ -1,37 +1,23 @@
-import React from "react";
-import { Box, Heading, VStack, IconButton } from "@chakra-ui/react";
-import { FaArrowLeft } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
-import EditProfile from "./EditProfile";
-import Notices from "./Notices";
-import FAQ from "./FAQ";
-import Inquiry from "./Inquiry";
-import Feedback from "./Feedback";
-import Terms from "./Terms";
-import Privacy from "./Privacy";
-import Notifications from "./Notifications";
+import React from 'react';
+import { Box, Text, VStack, Icon, HStack } from "@chakra-ui/react";
+import { FaArrowLeft, FaUser, FaBell, FaQuestionCircle, FaEnvelope, FaComment, FaFileAlt, FaLock, FaBellSlash } from 'react-icons/fa';
 
 const Settings = () => {
-  const navigate = useNavigate();
-
   return (
-    <Box>
-      <Box display="flex" alignItems="center" mb={8}>
-        <IconButton icon={<FaArrowLeft />} variant="ghost" onClick={() => navigate(-1)} aria-label="Go back" mr={2} />
-        <Heading size="xl" textAlign="center" flexGrow={1}>
-          설정
-        </Heading>
-      </Box>
-
-      <VStack spacing={8} align="stretch">
-        <EditProfile />
-        <Notices />
-        <FAQ />
-        <Inquiry />
-        <Feedback />
-        <Terms />
-        <Privacy />
-        <Notifications />
+    <Box p={4}>
+      <HStack mb={8}>
+        <Icon as={FaArrowLeft} boxSize={6} />
+        <Text fontSize="2xl" fontWeight="bold">Settings</Text>
+      </HStack>
+      <VStack spacing={6} align="stretch">
+        <HStack><Icon as={FaUser} boxSize={6} /><Text fontSize="xl">Edit Profile</Text></HStack>
+        <HStack><Icon as={FaBell} boxSize={6} /><Text fontSize="xl">Notices</Text></HStack>
+        <HStack><Icon as={FaQuestionCircle} boxSize={6} /><Text fontSize="xl">FAQ</Text></HStack>
+        <HStack><Icon as={FaEnvelope} boxSize={6} /><Text fontSize="xl">Inquiry</Text></HStack>
+        <HStack><Icon as={FaComment} boxSize={6} /><Text fontSize="xl">Feedback</Text></HStack>
+        <HStack><Icon as={FaFileAlt} boxSize={6} /><Text fontSize="xl">Terms</Text></HStack>
+        <HStack><Icon as={FaLock} boxSize={6} /><Text fontSize="xl">Privacy</Text></HStack>
+        <HStack><Icon as={FaBellSlash} boxSize={6} /><Text fontSize="xl">Notifications</Text></HStack>
       </VStack>
     </Box>
   );
