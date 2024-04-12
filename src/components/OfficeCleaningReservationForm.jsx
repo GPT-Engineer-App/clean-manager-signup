@@ -33,7 +33,7 @@ const OfficeCleaningReservationForm = () => {
   };
 
   return (
-    <Box maxWidth="md" mx="auto" p={4}>
+    <Box p={4} maxWidth="md" mx="auto">
       <form onSubmit={handleSubmit}>
         <FormControl isRequired>
           <FormLabel>이름</FormLabel>

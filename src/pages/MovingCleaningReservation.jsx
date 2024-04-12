@@ -15,7 +15,9 @@ const MovingCleaningReservation = () => {
           이사/입주청소 예약
         </Heading>
       </Box>
-      <MovingCleaningReservationForm />
+      <Box maxWidth="md" mx="auto" p={4}>
+        <MovingCleaningReservationForm />
+      </Box>
     </Box>
   );
 };
