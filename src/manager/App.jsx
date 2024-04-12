@@ -6,6 +6,7 @@ import MySchedule from "./pages/MySchedule.jsx";
 import ReservationManagement from "./pages/ReservationManagement.jsx";
 import SubmitQuote from "./pages/SubmitQuote.jsx";
 import Payment from "./pages/Payment.jsx";
+import AdminDashboard from "../pages/AdminDashboard.jsx";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/reservation-management" element={<ReservationManagement />} />
         <Route path="/submit-quote" element={<SubmitQuote />} />
         <Route path="/payment" element={<Payment />} />
+        <Route path="/admin-dashboard" element={<AdminDashboard />} />
       </Routes>
     </Router>
   );
