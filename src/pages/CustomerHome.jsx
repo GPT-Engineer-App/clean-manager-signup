@@ -52,7 +52,7 @@ const CustomerHome = () => {
             <Icon as={FaBuilding} boxSize={12} />
             <Text>사무실청소</Text>
           </Box>
-          <Box textAlign="center" onClick={() => navigate("/special-cleaning")}>
+          <Box textAlign="center" onClick={() => navigate("/special-cleaning-reservation")}>
             <Icon as={FaStar} boxSize={12} />
             <Text>특수청소</Text>
           </Box>
