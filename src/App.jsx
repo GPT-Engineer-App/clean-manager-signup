@@ -46,6 +46,14 @@ function App() {
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/notifications" element={<Notifications />} />
+        <Route path="/edit-profile" element={<EditProfile />} />
+        <Route path="/notices" element={<Notices />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/inquiry" element={<Inquiry />} />
+        <Route path="/feedback" element={<Feedback />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/notifications" element={<Notifications />} />
       </Routes>
     </Router>
   );
