@@ -1,7 +1,15 @@
 import React from "react";
-import { Box, Heading, IconButton, VStack, Text } from "@chakra-ui/react";
+import { Box, Heading, VStack, IconButton } from "@chakra-ui/react";
 import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import EditProfile from "./EditProfile";
+import Notices from "./Notices";
+import FAQ from "./FAQ";
+import Inquiry from "./Inquiry";
+import Feedback from "./Feedback";
+import Terms from "./Terms";
+import Privacy from "./Privacy";
+import Notifications from "./Notifications";
 
 const Settings = () => {
   const navigate = useNavigate();
@@ -9,20 +17,21 @@ const Settings = () => {
   return (
     <Box>
       <Box display="flex" alignItems="center" mb={8}>
-        <IconButton icon={<FaArrowLeft />} variant="ghost" onClick={() => navigate(-1)} mr={2} />
+        <IconButton icon={<FaArrowLeft />} variant="ghost" onClick={() => navigate(-1)} aria-label="Go back" mr={2} />
         <Heading size="xl" textAlign="center" flexGrow={1}>
           설정
         </Heading>
       </Box>
-      <VStack spacing={4} align="stretch">
-        <Text onClick={() => navigate("/edit-profile")}>프로필 수정</Text>
-        <Text onClick={() => navigate("/notices")}>공지사항</Text>
-        <Text onClick={() => navigate("/faq")}>자주 묻는 질문</Text>
-        <Text onClick={() => navigate("/inquiry")}>1:1 문의</Text>
-        <Text onClick={() => navigate("/feedback")}>피드백 보내기</Text>
-        <Text onClick={() => navigate("/terms")}>서비스 이용약관</Text>
-        <Text onClick={() => navigate("/privacy")}>개인정보 처리방침</Text>
-        <Text onClick={() => navigate("/notifications")}>알림 설정</Text>
+
+      <VStack spacing={8} align="stretch">
+        <EditProfile />
+        <Notices />
+        <FAQ />
+        <Inquiry />
+        <Feedback />
+        <Terms />
+        <Privacy />
+        <Notifications />
       </VStack>
     </Box>
   );
