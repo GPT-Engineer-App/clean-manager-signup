@@ -21,6 +21,10 @@ const BottomTab = () => {
           <Icon as={FaComments} boxSize={6} />
           <Text fontSize="xs">채팅</Text>
         </Box>
+        <Box textAlign="center" onClick={() => navigate("/usage-history")}>
+          <Icon as={FaHistory} boxSize={6} />
+          <Text fontSize="xs">이용내역</Text>
+        </Box>
         <Box textAlign="center" onClick={() => navigate("/settings")}>
           <Icon as={FaCog} boxSize={6} />
           <Text fontSize="xs">설정</Text>
