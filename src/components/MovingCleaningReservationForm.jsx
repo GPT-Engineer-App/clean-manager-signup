@@ -32,7 +32,7 @@ const MovingCleaningReservationForm = () => {
   };
 
   return (
-    <Box>
+    <Box p={4}>
       <form onSubmit={handleSubmit}>
         <FormControl isRequired>
           <FormLabel>이름</FormLabel>
