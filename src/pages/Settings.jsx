@@ -14,7 +14,12 @@ const Settings = () => {
           Settings
         </Text>
       </HStack>
-      
+      <HStack mb={8}>
+        <Icon as={FaArrowLeft} boxSize={6} onClick={() => navigate(-1)} />
+        <Text fontSize="2xl" fontWeight="bold">
+          Settings
+        </Text>
+      </HStack>
       <VStack spacing={6} align="stretch">
         <HStack onClick={() => navigate("/edit-profile")}>
           <Icon as={FaUser} boxSize={6} />
