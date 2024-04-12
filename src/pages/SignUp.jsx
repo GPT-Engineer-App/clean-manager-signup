@@ -25,7 +25,7 @@ const SignUp = () => {
   const toast = useToast();
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
       toast({
@@ -46,13 +46,56 @@ const SignUp = () => {
       return;
     }
 
-    toast({
-      title: "회원가입이 완료되었습니다",
-      status: "success",
-      duration: 3000,
-      isClosable: true,
-    });
-    navigate("/home");
+    try {
+      const response = await fetch("/api/cleaners/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          phone,
+          email,
+          password,
+          address,
+          birthdate,
+          gender,
+          experience,
+          preference,
+          otherExperience,
+          introduction,
+          strengths,
+          workHours,
+          workArea,
+          profileImage,
+        }),
+      });
+
+      if (response.ok) {
+        toast({
+          title: "회원가입이 완료되었습니다",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+        navigate("/home");
+      } else {
+        toast({
+          title: "회원가입에 실패했습니다",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        });
+      }
+    } catch (error) {
+      console.error("Error signing up:", error);
+      toast({
+        title: "회원가입에 실패했습니다",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+    }
   };
 
   return (

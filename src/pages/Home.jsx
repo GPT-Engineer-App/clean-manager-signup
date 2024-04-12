@@ -10,23 +10,13 @@ const Home = () => {
 
   useEffect(() => {
     const fetchReservations = async () => {
-      const data = [
-        {
-          id: 1,
-          customerName: "김철수",
-          address: "서울시 강남구 역삼동",
-          reservationDateTime: "2024-04-15 10:00",
-          requests: "창문 청소 추가 요청",
-        },
-        {
-          id: 2,
-          customerName: "박영희",
-          address: "서울시 서초구 반포동",
-          reservationDateTime: "2024-04-16 14:00",
-          requests: "침실 정리 요청",
-        },
-      ];
-      setReservations(data);
+      try {
+        const response = await fetch("/api/reservations");
+        const data = await response.json();
+        setReservations(data);
+      } catch (error) {
+        console.error("Error fetching reservations:", error);
+      }
     };
 
     fetchReservations();

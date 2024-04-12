@@ -9,15 +9,32 @@ const SubmitQuote = () => {
   const navigate = useNavigate();
   const [quote, setQuote] = useState(0);
   const [balance, setBalance] = useState(0);
+  const [customerInfo, setCustomerInfo] = useState(null);
 
   useEffect(() => {
-    const fetchBalance = async () => {
-      const fetchedBalance = 50000;
-      setBalance(fetchedBalance);
+    const fetchCustomerInfo = async () => {
+      try {
+        const response = await fetch(`/api/customers/${reservation.customerId}`);
+        const data = await response.json();
+        setCustomerInfo(data);
+      } catch (error) {
+        console.error("Error fetching customer info:", error);
+      }
     };
 
+    const fetchBalance = async () => {
+      try {
+        const response = await fetch("/api/cleaners/balance");
+        const data = await response.json();
+        setBalance(data.balance);
+      } catch (error) {
+        console.error("Error fetching balance:", error);
+      }
+    };
+
+    fetchCustomerInfo();
     fetchBalance();
-  }, []);
+  }, [reservation.customerId]);
 
   const calculateQuote = () => {
     let basePrice = 0;
