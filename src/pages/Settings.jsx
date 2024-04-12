@@ -15,14 +15,14 @@ const Settings = () => {
         </Heading>
       </Box>
       <VStack spacing={4} align="stretch">
-        <Button onClick={() => navigate("/edit-profile")}>프로필 수정</Button>
-        <Button onClick={() => navigate("/notices")}>공지사항</Button>
-        <Button onClick={() => navigate("/faq")}>자주 묻는 질문</Button>
-        <Button onClick={() => navigate("/inquiry")}>1:1 문의</Button>
-        <Button onClick={() => navigate("/feedback")}>피드백 보내기</Button>
-        <Button onClick={() => navigate("/terms")}>이용약관</Button>
-        <Button onClick={() => navigate("/privacy")}>개인정보 처리방침</Button>
-        <Button onClick={() => navigate("/notifications")}>알림 설정</Button>
+        <Button onClick={() => navigate("/customer/edit-profile")}>프로필 수정</Button>
+        <Button onClick={() => navigate("/customer/notices")}>공지사항</Button>
+        <Button onClick={() => navigate("/customer/faq")}>자주 묻는 질문</Button>
+        <Button onClick={() => navigate("/customer/inquiry")}>1:1 문의</Button>
+        <Button onClick={() => navigate("/customer/feedback")}>피드백 보내기</Button>
+        <Button onClick={() => navigate("/customer/terms")}>이용약관</Button>
+        <Button onClick={() => navigate("/customer/privacy")}>개인정보 처리방침</Button>
+        <Button onClick={() => navigate("/customer/notifications")}>알림 설정</Button>
       </VStack>
     </Box>
   );
