@@ -11,9 +11,8 @@ const CustomerHome = () => {
 
   return (
     <Box>
-      <Box display="flex" alignItems="center" mb={8}>
-        <IconButton icon={<FaArrowLeft />} variant="ghost" onClick={() => navigate(-1)} mr={2} />
-        <Heading size="xl" textAlign="center" flexGrow={1}>
+      <Box mb={8}>
+        <Heading size="xl" textAlign="center">
           고객 홈
         </Heading>
       </Box>
