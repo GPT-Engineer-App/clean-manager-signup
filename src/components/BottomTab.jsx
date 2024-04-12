@@ -3,7 +3,7 @@ import { Box, HStack, Icon, Text, IconButton } from "@chakra-ui/react";
 import { FaBookmark, FaComments, FaCog, FaHistory, FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-const BottomTab = () => {
+const BottomTab = ({ selectedCleaner }) => {
   const navigate = useNavigate();
 
   return (
@@ -17,7 +17,7 @@ const BottomTab = () => {
           <Icon as={FaHistory} boxSize={6} />
           <Text fontSize="xs">이용내역</Text>
         </Box>
-        <Box textAlign="center" onClick={() => navigate("/chat")}>
+        <Box textAlign="center" onClick={() => navigate("/chat", { state: { selectedCleaner } })}>
           <Icon as={FaComments} boxSize={6} />
           <Text fontSize="xs">채팅</Text>
         </Box>
