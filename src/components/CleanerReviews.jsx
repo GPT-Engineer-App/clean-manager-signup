@@ -57,8 +57,7 @@ const CleanerReviews = () => {
             <Text fontWeight="bold">{review.cleanerName}</Text>
             <StarRating rating={review.rating} />
             <Text>{review.comment}</Text>
-            {review.photo && <Image src={review.photo} alt="Review Photo" mt={4} />}
-            <input type="file" accept="image/*" onChange={(event) => handlePhotoUpload(review.id, event)} />
+            {review.cleanerPhoto && <Image src={review.cleanerPhoto} alt="Cleaner Photo" mt={4} />}
           </Box>
         ))}
       </VStack>
