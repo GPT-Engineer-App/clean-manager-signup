@@ -44,7 +44,7 @@ const CustomerHome = () => {
             <Icon as={FaHome} boxSize={12} />
             <Text>이사/입주청소</Text>
           </Box>
-          <Box textAlign="center" onClick={() => navigate("/commercial-cleaning")}>
+          <Box textAlign="center" onClick={() => navigate("/commercial-cleaning-reservation")}>
             <Icon as={FaStore} boxSize={12} />
             <Text>상가청소</Text>
           </Box>
