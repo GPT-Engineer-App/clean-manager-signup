@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Text, VStack, Icon, HStack } from "@chakra-ui/react";
+import { Box, Text, VStack, Icon, HStack, IconButton } from "@chakra-ui/react";
 import { FaArrowLeft, FaUser, FaBell, FaQuestionCircle, FaEnvelope, FaComment, FaFileAlt, FaLock, FaBellSlash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
@@ -8,6 +8,12 @@ const Settings = () => {
 
   return (
     <Box p={4}>
+      <HStack mb={8}>
+        <IconButton icon={<FaArrowLeft />} variant="ghost" onClick={() => navigate(-1)} />
+        <Text fontSize="2xl" fontWeight="bold">
+          Settings
+        </Text>
+      </HStack>
       <HStack mb={8}>
         <Icon as={FaArrowLeft} boxSize={6} onClick={() => navigate(-1)} />
         <Text fontSize="2xl" fontWeight="bold">
