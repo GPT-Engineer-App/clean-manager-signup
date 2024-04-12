@@ -13,6 +13,14 @@ import UsageHistory from "./pages/UsageHistory.jsx";
 import Chat from "./pages/Chat.jsx";
 import Payment from "./pages/Payment.jsx";
 import Settings from "./pages/Settings.jsx";
+import EditProfile from "./pages/EditProfile.jsx";
+import Notices from "./pages/Notices.jsx";
+import FAQ from "./pages/FAQ.jsx";
+import Inquiry from "./pages/Inquiry.jsx";
+import Feedback from "./pages/Feedback.jsx";
+import Terms from "./pages/Terms.jsx";
+import Privacy from "./pages/Privacy.jsx";
+import Notifications from "./pages/Notifications.jsx";
 
 function App() {
   return (
@@ -32,6 +40,14 @@ function App() {
         <Route path="/usage-history" element={<UsageHistory />} />
         <Route path="/chat" element={<Chat />} />
         <Route path="/settings" element={<Settings />} />
+        <Route path="/edit-profile" element={<EditProfile />} />
+        <Route path="/notices" element={<Notices />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/inquiry" element={<Inquiry />} />
+        <Route path="/feedback" element={<Feedback />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/notifications" element={<Notifications />} />
       </Routes>
     </Router>
   );
