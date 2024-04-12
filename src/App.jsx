@@ -10,6 +10,7 @@ import CommercialCleaningReservation from "./pages/CommercialCleaningReservation
 import OfficeCleaningReservation from "./pages/OfficeCleaningReservation.jsx";
 import ApplianceCleaningReservation from "./pages/ApplianceCleaningReservation.jsx";
 import UsageHistory from "./pages/UsageHistory.jsx";
+import Chat from "./pages/Chat.jsx";
 import Payment from "./pages/Payment.jsx";
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route path="/office-cleaning-reservation" element={<OfficeCleaningReservation />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/usage-history" element={<UsageHistory />} />
+        <Route path="/chat" element={<Chat />} />
       </Routes>
     </Router>
   );
