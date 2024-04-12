@@ -22,6 +22,7 @@ function App() {
         <Route path="/moving-cleaning-reservation" element={<MovingCleaningReservation />} />
         <Route path="/special-cleaning-reservation" element={<SpecialCleaningReservation />} />
         <Route path="/commercial-cleaning-reservation" element={<CommercialCleaningReservation />} />
+        <Route path="/commercial-cleaning-reservation" element={<CommercialCleaningReservation />} />
         <Route path="/office-cleaning-reservation" element={<OfficeCleaningReservation />} />
         <Route path="/appliance-cleaning-reservation" element={<ApplianceCleaningReservation />} />
         <Route path="/office-cleaning-reservation" element={<OfficeCleaningReservation />} />
