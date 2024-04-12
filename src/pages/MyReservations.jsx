@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Box, Heading, Text, Button, useToast } from "@chakra-ui/react";
+import { Box, Heading, Text, Button, useToast, IconButton } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 
 const MyReservations = () => {
   const [reservations, setReservations] = useState([]);
   const toast = useToast();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchReservations = async () => {
@@ -73,9 +76,10 @@ const MyReservations = () => {
 
   return (
     <Box p={4}>
-      <Heading size="lg" mb={4}>
-        내 예약 내역
-      </Heading>
+      <Box display="flex" alignItems="center" mb={4}>
+        <IconButton icon={<FaArrowLeft />} variant="ghost" onClick={() => navigate(-1)} mr={2} />
+        <Heading size="lg">내 예약 내역</Heading>
+      </Box>
       {reservations.map((reservation) => (
         <Box key={reservation.id} borderWidth={1} borderRadius="md" p={4} mb={4}>
           <Text>주소: {reservation.address}</Text>
