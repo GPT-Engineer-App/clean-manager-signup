@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FormControl, FormLabel, Input, Textarea, Button } from "@chakra-ui/react";
+import { Box, FormControl, FormLabel, Input, Textarea, Button } from "@chakra-ui/react";
 
 const SpecialCleaningReservationForm = () => {
   const [name, setName] = useState("");
@@ -21,7 +21,8 @@ const SpecialCleaningReservationForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <Box p={4} maxWidth="md" mx="auto">
+      <form onSubmit={handleSubmit}>
       <FormControl isRequired mb={4}>
         <FormLabel>이름</FormLabel>
         <Input type="text" value={name} onChange={(e) => setName(e.target.value)} />
@@ -78,6 +79,7 @@ const SpecialCleaningReservationForm = () => {
         예약하기
       </Button>
     </form>
+    </Box>
   );
 };
 
