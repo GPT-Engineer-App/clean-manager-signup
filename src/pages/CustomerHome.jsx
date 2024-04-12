@@ -1,5 +1,6 @@
 import React from "react";
-import { Box, Heading, SimpleGrid, Icon, Text } from "@chakra-ui/react";
+import { Box, Heading, SimpleGrid, Icon, Text, IconButton } from "@chakra-ui/react";
+import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { FaHome, FaStore, FaBuilding, FaStar, FaTools } from "react-icons/fa";
 import CleanerReviews from "../components/CleanerReviews";
@@ -10,9 +11,12 @@ const CustomerHome = () => {
 
   return (
     <Box>
-      <Heading size="xl" textAlign="center" mb={8}>
-        고객 홈
-      </Heading>
+      <Box display="flex" alignItems="center" mb={8}>
+        <IconButton icon={<FaArrowLeft />} variant="ghost" onClick={() => navigate(-1)} mr={2} />
+        <Heading size="xl" textAlign="center" flexGrow={1}>
+          고객 홈
+        </Heading>
+      </Box>
       <Box p={4}>
         <Heading size="lg" mb={4}>
           서비스 유형

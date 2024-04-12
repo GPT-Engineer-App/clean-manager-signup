@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Heading, Text, Image, VStack } from "@chakra-ui/react";
+import { Box, Heading, Text, Image, VStack, Input } from "@chakra-ui/react";
 import StarRating from "./StarRating";
 
 const CleanerReviews = () => {
@@ -20,6 +20,14 @@ const CleanerReviews = () => {
     },
   ]);
 
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearch = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  const filteredReviews = reviews.filter((review) => review.cleanerName.includes(searchQuery));
+
   const handlePhotoUpload = (reviewId, event) => {
     const file = event.target.files[0];
     const updatedReviews = reviews.map((review) => {
@@ -31,15 +39,14 @@ const CleanerReviews = () => {
     setReviews(updatedReviews);
   };
 
-  
-
   return (
     <Box mb={8}>
       <Heading size="lg" mb={4}>
         청소매니저 리뷰
       </Heading>
+      <Input placeholder="청소매니저 이름으로 검색" value={searchQuery} onChange={handleSearch} mb={4} />
       <VStack spacing={4}>
-        {reviews.map((review) => (
+        {filteredReviews.map((review) => (
           <Box key={review.id} borderWidth={1} borderRadius="md" p={4}>
             <Text fontWeight="bold">{review.cleanerName}</Text>
             <StarRating rating={review.rating} />
