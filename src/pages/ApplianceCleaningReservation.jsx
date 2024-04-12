@@ -8,14 +8,16 @@ const ApplianceCleaningReservation = () => {
   const navigate = useNavigate();
 
   return (
-    <Box maxWidth="md" mx="auto" mt={8}>
+    <Box>
       <Box display="flex" alignItems="center" mb={8}>
         <IconButton icon={<FaArrowLeft />} variant="ghost" onClick={() => navigate("/customer-home")} mr={2} />
         <Heading size="xl" textAlign="center" flexGrow={1}>
           가전제품 청소 예약
         </Heading>
       </Box>
-      <ApplianceCleaningReservationForm />
+      <Box maxWidth="md" mx="auto" p={4}>
+        <ApplianceCleaningReservationForm />
+      </Box>
     </Box>
   );
 };
