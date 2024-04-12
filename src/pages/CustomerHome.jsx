@@ -43,8 +43,8 @@ const CustomerHome = () => {
           </Box>
         </SimpleGrid>
         <Box my={8}>
-          <a href="https://example.com/ad" target="_blank" rel="noopener noreferrer">
-            <img src="/path/to/ad-banner.jpg" alt="Advertisement" />
+          <a href="https://www.cleaninglab.co.kr/event" target="_blank" rel="noopener noreferrer">
+            <img src="/images/event-banner.jpg" alt="CleaningLab Event" />
             <Text textAlign="center" mt={2}>
               광고 문구
             </Text>

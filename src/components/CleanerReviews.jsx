@@ -29,17 +29,6 @@ const CleanerReviews = () => {
 
   const filteredReviews = reviews.filter((review) => review.cleanerName.includes(searchQuery));
 
-  const handlePhotoUpload = (reviewId, event) => {
-    const file = event.target.files[0];
-    const updatedReviews = reviews.map((review) => {
-      if (review.id === reviewId) {
-        return { ...review, photo: URL.createObjectURL(file) };
-      }
-      return review;
-    });
-    setReviews(updatedReviews);
-  };
-
   return (
     <Box mb={8}>
       <Heading size="lg" mb={4}>
@@ -57,7 +46,6 @@ const CleanerReviews = () => {
             <Text fontWeight="bold">{review.cleanerName}</Text>
             <StarRating rating={review.rating} />
             <Text>{review.comment}</Text>
-            {review.cleanerPhoto && <Image src={review.cleanerPhoto} alt="Cleaner Photo" mt={4} />}
           </Box>
         ))}
       </VStack>
