@@ -10,29 +10,13 @@ const MyReservations = () => {
 
   useEffect(() => {
     const fetchReservations = async () => {
-      const data = [
-        {
-          id: 1,
-          address: "서울시 강남구 역삼동",
-          reservationDateTime: "2024-04-15 10:00",
-          status: "pending",
-          quotes: [
-            { id: 1, cleanerName: "김철수", price: 100000 },
-            { id: 2, cleanerName: "이영희", price: 120000 },
-          ],
-        },
-        {
-          id: 2,
-          address: "서울시 서초구 반포동",
-          reservationDateTime: "2024-04-16 14:00",
-          status: "confirmed",
-          quotes: [
-            { id: 3, cleanerName: "박민수", price: 90000 },
-            { id: 4, cleanerName: "최지영", price: 110000 },
-          ],
-        },
-      ];
-      setReservations(data);
+      try {
+        const response = await fetch("/api/reservations/customer");
+        const data = await response.json();
+        setReservations(data);
+      } catch (error) {
+        console.error("Error fetching reservations:", error);
+      }
     };
 
     fetchReservations();

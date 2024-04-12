@@ -36,26 +36,43 @@ const SubmitQuote = () => {
     fetchBalance();
   }, [reservation.customerId]);
 
-  const calculateQuote = () => {
-    let basePrice = 0;
-    switch (reservation.address.split(" ")[0]) {
-      case "서울시":
-        basePrice = 100000;
-        break;
-      case "경기도":
-        basePrice = 90000;
-        break;
-      default:
-        basePrice = 80000;
+  const calculateQuote = async () => {
+    try {
+      const response = await fetch("/api/quotes/calculate", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          address: reservation.address,
+        }),
+      });
+      const data = await response.json();
+      setQuote(data.quote);
+    } catch (error) {
+      console.error("Error calculating quote:", error);
     }
-    setQuote(basePrice);
   };
 
-  const handleSubmitQuote = () => {
-    if (balance >= quote) {
-      console.log("Quote submitted successfully");
-    } else {
-      navigate("/payment", { state: { requiredAmount: quote - balance } });
+  const handleSubmitQuote = async () => {
+    try {
+      const response = await fetch("/api/quotes/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          reservationId: reservation.id,
+          quote: quote,
+        }),
+      });
+      if (response.ok) {
+        console.log("Quote submitted successfully");
+      } else {
+        console.error("Error submitting quote");
+      }
+    } catch (error) {
+      console.error("Error submitting quote:", error);
     }
   };
 
