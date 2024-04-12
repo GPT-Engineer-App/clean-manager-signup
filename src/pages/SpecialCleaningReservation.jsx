@@ -33,8 +33,15 @@ const SpecialCleaningReservation = () => {
   };
 
   return (
-    <Box maxWidth="md" mx="auto" mt={8}>
-      <form onSubmit={handleSubmit}>
+    <Box>
+      <Box display="flex" alignItems="center" mb={8}>
+        <IconButton icon={<FaArrowLeft />} variant="ghost" onClick={() => navigate("/customer-home")} mr={2} />
+        <Heading size="xl" textAlign="center" flexGrow={1}>
+          특수 청소 예약
+        </Heading>
+      </Box>
+      <Box maxWidth="md" mx="auto">
+        <form onSubmit={handleSubmit}>
         <FormControl isRequired mb={4}>
           <FormLabel>이름</FormLabel>
           <Input type="text" value={name} onChange={(e) => setName(e.target.value)} />
@@ -90,7 +97,8 @@ const SpecialCleaningReservation = () => {
         <Button type="submit" colorScheme="blue" isFullWidth>
           예약하기
         </Button>
-      </form>
+        </form>
+      </Box>
     </Box>
   );
 };
