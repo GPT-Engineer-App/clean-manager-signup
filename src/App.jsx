@@ -24,6 +24,7 @@ function App() {
         <Route path="/commercial-cleaning-reservation" element={<CommercialCleaningReservation />} />
         <Route path="/office-cleaning-reservation" element={<OfficeCleaningReservation />} />
         <Route path="/appliance-cleaning-reservation" element={<ApplianceCleaningReservation />} />
+        <Route path="/office-cleaning-reservation" element={<OfficeCleaningReservation />} />
       </Routes>
     </Router>
   );
