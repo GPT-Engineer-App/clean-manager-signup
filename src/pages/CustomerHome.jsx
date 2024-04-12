@@ -1,34 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Box, Heading, Text, Button, SimpleGrid, Icon } from "@chakra-ui/react";
+import { Box, Heading, SimpleGrid, Icon } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { FaHome, FaStore, FaBuilding, FaStar, FaTools } from "react-icons/fa";
 import CleanerReviews from "../components/CleanerReviews";
+import BottomTab from "../components/BottomTab";
 
 const CustomerHome = () => {
-  const [reservations, setReservations] = useState([]);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const fetchReservations = async () => {
-      const data = [
-        {
-          id: 1,
-          address: "서울시 강남구 역삼동",
-          reservationDateTime: "2024-04-15 10:00",
-          status: "pending",
-        },
-        {
-          id: 2,
-          address: "서울시 서초구 반포동",
-          reservationDateTime: "2024-04-16 14:00",
-          status: "confirmed",
-        },
-      ];
-      setReservations(data);
-    };
-
-    fetchReservations();
-  }, []);
 
   return (
     <Box>
@@ -62,11 +40,8 @@ const CustomerHome = () => {
           </Box>
         </SimpleGrid>
         <CleanerReviews />
-
-        <Button colorScheme="green" onClick={() => navigate("/request-cleaning")} isFullWidth>
-          새로운 청소 요청하기
-        </Button>
       </Box>
+      <BottomTab />
     </Box>
   );
 };
