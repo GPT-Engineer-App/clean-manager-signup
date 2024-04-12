@@ -44,11 +44,11 @@ const CustomerHome = () => {
             <Icon as={FaHome} boxSize={12} />
             <Text>이사/입주청소</Text>
           </Box>
-          <Box textAlign="center" onClick={() => navigate("/commercial-cleaning")}>
+          <Box textAlign="center" onClick={() => navigate("/commercial-cleaning-reservation")}>
             <Icon as={FaStore} boxSize={12} />
             <Text>상가청소</Text>
           </Box>
-          <Box textAlign="center" onClick={() => navigate("/office-cleaning")}>
+          <Box textAlign="center" onClick={() => navigate("/office-cleaning-reservation")}>
             <Icon as={FaBuilding} boxSize={12} />
             <Text>사무실청소</Text>
           </Box>
@@ -56,7 +56,7 @@ const CustomerHome = () => {
             <Icon as={FaStar} boxSize={12} />
             <Text>특수청소</Text>
           </Box>
-          <Box textAlign="center" onClick={() => navigate("/appliance-cleaning")}>
+          <Box textAlign="center" onClick={() => navigate("/appliance-cleaning-reservation")}>
             <Icon as={FaTools} boxSize={12} />
             <Text>가전청소</Text>
           </Box>
