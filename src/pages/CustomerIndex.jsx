@@ -17,7 +17,7 @@ const CustomerIndex = () => {
         duration: 3000,
         isClosable: true,
       });
-      navigate("/customer-home");
+      navigate("/home");
     } else {
       toast({
         title: "전화번호를 확인해주세요",
