@@ -47,7 +47,7 @@ const CustomerSignUp = () => {
           duration: 3000,
           isClosable: true,
         });
-        navigate("/home");
+        navigate("/customer-home");
       } else {
         toast({
           title: "회원가입에 실패했습니다",
