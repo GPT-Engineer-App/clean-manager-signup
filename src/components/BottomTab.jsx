@@ -1,9 +1,9 @@
 import React from "react";
 import { Box, HStack, Icon, Text, IconButton } from "@chakra-ui/react";
-import { FaBookmark, FaComments, FaCog, FaHistory, FaArrowLeft } from "react-icons/fa";
+import { FaBookmark, FaComments, FaCog, FaHistory } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-const BottomTab = ({ selectedCleaner }) => {
+const BottomTab = () => {
   const navigate = useNavigate();
 
   return (
