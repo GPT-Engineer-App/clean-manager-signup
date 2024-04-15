@@ -35,7 +35,7 @@ const CustomerIndex = () => {
   return (
     <Box p={4}>
       <Heading size="xl" textAlign="center" mb={8}>
-        고객 로그인
+        로그인
       </Heading>
       <VStack spacing={4}>
         <Input type="tel" placeholder="전화번호를 입력하세요" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} maxLength={11} />
@@ -48,9 +48,6 @@ const CustomerIndex = () => {
             회원가입
           </Button>
         </Text>
-        <Button colorScheme="green" onClick={() => navigate("/request-cleaning")} isFullWidth>
-          청소 요청하기
-        </Button>
       </VStack>
     </Box>
   );
