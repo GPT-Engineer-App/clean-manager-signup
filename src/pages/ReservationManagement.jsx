@@ -21,6 +21,20 @@ const ReservationManagement = () => {
     fetchReservations();
   }, []);
 
+  useEffect(() => {
+    const fetchReservations = async () => {
+      try {
+        const response = await fetch("/api/reservations/cleaner");
+        const data = await response.json();
+        setReservations(data);
+      } catch (error) {
+        console.error("Error fetching reservations:", error);
+      }
+    };
+
+    fetchReservations();
+  }, []);
+
   return (
     <Box>
       <Box display="flex" alignItems="center" mb={8}>
