@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import CustomerApp from "./CustomerApp.jsx";
-import { ChakraProvider } from "@chakra-ui/react";
-import { extendTheme } from "@chakra-ui/react";
+import { ChakraProvider, extendTheme, RadioGroup, Radio } from "@chakra-ui/react";
 
 const theme = extendTheme({
   colors: {
@@ -18,10 +17,24 @@ const theme = extendTheme({
   },
 });
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+function App() {
+  const [userType, setUserType] = useState("customer");
+
+  return (
     <ChakraProvider theme={theme}>
+      <RadioGroup value={userType} onChange={setUserType}>
+        <Radio value="customer" mr={4}>
+          Customer
+        </Radio>
+        <Radio value="cleaner">Cleaner</Radio>
+      </RadioGroup>
       <CustomerApp />
     </ChakraProvider>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <App />
   </React.StrictMode>,
 );
