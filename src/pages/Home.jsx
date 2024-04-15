@@ -36,20 +36,6 @@ const Home = () => {
     fetchReservations();
   }, []);
 
-  useEffect(() => {
-    const fetchReservations = async () => {
-      try {
-        const response = await fetch("/api/reservations");
-        const data = await response.json();
-        setReservations(data);
-      } catch (error) {
-        console.error("Error fetching reservations:", error);
-      }
-    };
-
-    fetchReservations();
-  }, []);
-
   const handleSubmitQuote = (reservationId) => {
     const reservation = reservations.find((res) => res.id === reservationId);
     navigate("/submit-quote", { state: { reservation } });
