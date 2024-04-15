@@ -87,7 +87,7 @@ const SignUp = () => {
           isClosable: true,
         });
       }
-    } catch (error) {
+    }
       console.error("Error signing up:", error);
       toast({
         title: "회원가입에 실패했습니다",

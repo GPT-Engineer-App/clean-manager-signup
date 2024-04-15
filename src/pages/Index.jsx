@@ -9,19 +9,37 @@ const Index = () => {
 
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    if (phoneNumber.length === 11) {
-      toast({
-        title: "로그인 성공",
-        status: "success",
-        duration: 3000,
-        isClosable: true,
+  const handleLogin = async () => {
+    try {
+      const response = await fetch("/api/cleaners/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ phone: phoneNumber }),
       });
-      navigate("/home");
-    } else {
+
+      if (response.ok) {
+        toast({
+          title: "로그인 성공",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+        navigate("/home");
+      } else {
+        toast({
+          title: "로그인에 실패했습니다",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        });
+      }
+    } catch (error) {
+      console.error("Error logging in:", error);
       toast({
-        title: "전화번호를 확인해주세요",
-        status: "warning",
+        title: "로그인에 실패했습니다",
+        status: "error",
         duration: 3000,
         isClosable: true,
       });
