@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Box, VStack, Input, Button, Text, Heading, useToast } from "@chakra-ui/react";
+import { Box, VStack, Input, Button, Text, Heading, useToast, RadioGroup, Radio } from "@chakra-ui/react";
 import { FaPhone } from "react-icons/fa";
 
 const Index = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [userType, setUserType] = useState("customer");
   const toast = useToast();
 
   const navigate = useNavigate();
@@ -17,7 +18,11 @@ const Index = () => {
         duration: 3000,
         isClosable: true,
       });
-      navigate("/home");
+      if (userType === "customer") {
+        navigate("/customer-home");
+      } else {
+        navigate("/home");
+      }
     } else {
       toast({
         title: "전화번호를 확인해주세요",
@@ -29,15 +34,25 @@ const Index = () => {
   };
 
   const handleSignUp = () => {
-    navigate("/signup");
+    if (userType === "customer") {
+      navigate("/customer-signup");
+    } else {
+      navigate("/signup");
+    }
   };
 
   return (
     <Box p={4}>
       <Heading size="xl" textAlign="center" mb={8}>
-        청소매니저 로그인
+        로그인
       </Heading>
       <VStack spacing={4}>
+        <RadioGroup value={userType} onChange={setUserType}>
+          <Radio value="customer" mr={4}>
+            고객
+          </Radio>
+          <Radio value="cleaner">청소매니저</Radio>
+        </RadioGroup>
         <Input type="tel" placeholder="전화번호를 입력하세요" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} maxLength={11} />
         <Button leftIcon={<FaPhone />} colorScheme="blue" onClick={handleLogin} isFullWidth>
           로그인
